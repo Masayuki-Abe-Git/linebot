@@ -5,8 +5,8 @@ class WebhookController < ApplicationController
 
     def client
       @client ||= Line::Bot::Client.new { |config|
-        config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-        config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+        config.channel_secret = ENV["0f7bf2f88271bcd2781ce722e4bf005e"]
+        config.channel_token = ENV["qPjKyL7yJoX81s5S8alOL4h7FrPDoyn3BCK18/nPWL25e0tCq7DFo+IiavwYxcGPLLrbPYnE5rjUXfwn+FC2QbKOhJ63s9Ao4pV0APey1Yw0SstZC2w/ADoAbCFK1GMgm01MzkBbT9WG1wNlF9gC2wdB04t89/1O/w1cDnyilFU="]
       }
     end
 
