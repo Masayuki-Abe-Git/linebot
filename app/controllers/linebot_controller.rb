@@ -33,7 +33,6 @@ class LinebotController < ApplicationController
           end
         end
       end
-
       "OK"
     end
 end
