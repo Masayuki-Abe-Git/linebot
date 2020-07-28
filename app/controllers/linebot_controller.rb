@@ -22,8 +22,8 @@ class LinebotController < ApplicationController
     #ここでlineに送られたイベントを検出している
     # messageのtext: に指定すると、返信する文字を決定することができる
     #event.message['text']で送られたメッセージを取得することができる
-    events.each { |event|
-      if event.message['text'] != nil
+    - events.each { |event|
+      - if event.message['text'] != nil
         place = event.message['text'] #ここでLINEで送った文章を取得
         result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/20150630/?keyid=3fa92180d46259a9942d63e66ffe5e11'&'format=json'&'address=#{place}`#ここでぐるなびAPIを叩く
         latitude = event.message['latitude']
