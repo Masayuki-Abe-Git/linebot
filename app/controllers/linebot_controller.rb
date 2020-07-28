@@ -30,7 +30,7 @@ class LinebotController < ApplicationController
         latitude = event.message['latitude']
         longitude = event.message['longitude']
 
-        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/20150630/?keyid=3fa92180d46259a9942d63e66ffe5e11\\&format=json&latitude=#{latitude}\\&longitude=#{longitude}`#ここでぐるなびAPIを叩く
+        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/20150630/?keyid=3fa92180d46259a9942d63e66ffe5e11\\&format=json&latitude=#{latitude}&longitude=#{longitude}`#ここでぐるなびAPIを叩く
       end
 
       hash_result = JSON.parse result #レスポンスが文字列なのでhashにパースする
