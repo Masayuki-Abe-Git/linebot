@@ -25,14 +25,14 @@ class LinebotController < ApplicationController
     events.each { |event|
       if event.message['text'] != nil
         place = event.message['text'] #ここでLINEで送った文章を取得
-        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3fa92180d46259a9942d63e66ffe5e11'&'format=json'&'address=#{place}`#ここでぐるなびAPIを叩く
+        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3fa92180d46259a9942d63e66ffe5e11&format=json&address=#{place}`#ここでぐるなびAPIを叩く
       else
         latitude = event.message['latitude']
         longitude = event.message['longitude']
 
-        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3fa92180d46259a9942d63e66ffe5e11'&'format=json'&'latitude=#{latitude}'&'longitude=#{longitude}`#ここでぐるなびAPIを叩く
+        result = `curl -X GET http://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=3fa92180d46259a9942d63e66ffe5e11&format=json&latitude=#{latitude}&longitude=#{longitude}`#ここでぐるなびAPIを叩く
       end
-      p result
+
       hash_result = JSON.parse result #レスポンスが文字列なのでhashにパースする
       shops = hash_result["rest"] #ここでお店情報が入った配列となる
       shop = shops.sample #任意のものを一個選ぶ
